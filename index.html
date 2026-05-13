@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DariVapos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+padding:30px 20px;
+background:linear-gradient(180deg,#111,#0b0b0b);
+border-bottom:1px solid rgba(212,175,55,0.15);
+position:sticky;
+top:0;
+backdrop-filter:blur(12px);
+z-index:100;
+}
+
+.logo{
+font-size:2.7rem;
+font-weight:700;
+color:#d4af37;
+letter-spacing:1px;
+}
+
+.subtitle{
+margin-top:6px;
+color:#d7d7d7;
+font-size:1rem;
+}
+
+.hero{
+padding:70px 20px 50px;
+text-align:center;
+}
+
+.hero h1{
+font-size:2.6rem;
+line-height:1.15;
+margin-bottom:18px;
+}
+
+.hero span{
+color:#d4af37;
+}
+
+.hero p{
+color:#bdbdbd;
+font-size:1rem;
+max-width:600px;
+margin:auto;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:28px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-buttons a{
+text-decoration:none;
+padding:14px 24px;
+border-radius:16px;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn-primary{
+background:#d4af37;
+color:black;
+}
+
+.btn-secondary{
+border:1px solid rgba(212,175,55,0.4);
+color:#d4af37;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+padding:10px 20px 0;
+font-size:1.9rem;
+font-weight:700;
+color:#d4af37;
+}
+
+.catalogo{
+padding:25px 20px 60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+gap:22px;
+}
+
+.card{
+background:linear-gradient(180deg,#171717,#101010);
+border-radius:28px;
+padding:22px;
+box-shadow:0 0 35px rgba(212,175,55,0.08);
+border:1px solid rgba(212,175,55,0.12);
+transition:0.35s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:'';
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(212,175,55,0.08);
+filter:blur(70px);
+right:-60px;
+top:-60px;
+}
+
+.card:hover{
+transform:translateY(-7px);
+box-shadow:0 0 45px rgba(212,175,55,0.18);
+}
+
+.product-image{
+width:100%;
+height:230px;
+border-radius:22px;
+background:linear-gradient(135deg,#2a2a2a,#111);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:3rem;
+color:#d4af37;
+margin-bottom:18px;
+border:1px solid rgba(212,175,55,0.1);
+}
+
+.badge{
+display:inline-block;
+padding:8px 15px;
+background:rgba(212,175,55,0.15);
+border-radius:999px;
+font-size:0.82rem;
+margin-bottom:15px;
+color:#f2d67b;
+font-weight:600;
+}
+
+.product-title{
+font-size:1.55rem;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.price{
+font-size:1.4rem;
+color:#d4af37;
+margin-bottom:16px;
+font-weight:700;
+}
+
+.label{
+font-size:0.92rem;
+margin-bottom:8px;
+color:#bbbbbb;
+font-weight:500;
+}
+
+input,
+select{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#222;
+color:white;
+margin-bottom:16px;
+outline:none;
+font-size:0.95rem;
+border:1px solid rgba(212,175,55,0.08);
+}
+
+button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:#d4af37;
+color:black;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+.entregas{
+padding:0 20px 70px;
+}
+
+.entregas-box{
+background:#121212;
+border:1px solid rgba(212,175,55,0.12);
+border-radius:24px;
+padding:25px;
+}
+
+.entregas ul{
+margin-top:15px;
+list-style:none;
+}
+
+.entregas li{
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.05);
+color:#d4d4d4;
+}
+
+footer{
+padding:35px 20px;
+text-align:center;
+background:#0e0e0e;
+border-top:1px solid rgba(212,175,55,0.1);
+}
+
+.insta{
+margin-top:12px;
+display:inline-block;
+color:#d4af37;
+text-decoration:none;
+font-weight:700;
+font-size:1rem;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:2rem;
+}
+
+.logo{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+DariVapos
+</div>
+
+<div class="subtitle">
+Los mejores vapos de la city ✨
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>
+Los sabores más <span>premium</span> de Guanajuato
+</h1>
+
+<p>
+Pedidos rápidos por WhatsApp, entregas cómodas y los modelos más buscados.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#catalogo" class="btn-primary">
+Ver catálogo
+</a>
+
+<a href="https://instagram.com/dario_ssv" target="_blank" class="btn-secondary">
+Instagram
+</a>
+
+</div>
+
+</section>
+
+<h2 class="section-title" id="catalogo">
+Catálogo
+</h2>
+
+<section class="catalogo">
+
+<!-- WAKA 30K -->
+
+<div class="card">
+
+<div class="product-image">
+💨
+</div>
+
+<div class="badge">
+Disponible
+</div>
+
+<div class="product-title">
+Waka 30K
+</div>
+
+<div class="price">
+$400 MXN
+</div>
+
+<div class="label">
+Tu nombre:
+</div>
+
+<input type="text" id="nombre1" placeholder="Ingresa tu nombre">
+
+<div class="label">
+Selecciona sabor:
+</div>
+
+<select id="sabor1">
+<option>Peach Mango Watermelon</option>
+<option>Cool Mint</option>
+<option>Blueberry Mint</option>
+</select>
+
+<div class="label">
+Punto de entrega:
+</div>
+
+<select id="entrega1">
+<option>Jardín Unión</option>
+<option>Plaza Alaïa</option>
+</select>
+
+<button onclick="pedir('Waka 30K','$400','sabor1','entrega1','nombre1')">
+Pedir por WhatsApp
+</button>
+
+</div>
+
+<!-- WAKA 36K -->
+
+<div class="card">
+
+<div class="product-image">
+🔥
+</div>
+
+<div class="badge">
+Disponible
+</div>
+
+<div class="product-title">
+Waka 36K
+</div>
+
+<div class="price">
+$450 MXN
+</div>
+
+<div class="label">
+Tu nombre:
+</div>
+
+<input type="text" id="nombre2" placeholder="Ingresa tu nombre">
+
+<div class="label">
+Selecciona sabor:
+</div>
+
+<select id="sabor2">
+<option>Miami Mint</option>
+<option>Pink Lemonade</option>
+<option>México Mango</option>
+</select>
+
+<div class="label">
+Punto de entrega:
+</div>
+
+<select id="entrega2">
+<option>Jardín Unión</option>
+<option>Plaza Alaïa</option>
+</select>
+
+<button onclick="pedir('Waka 36K','$450','sabor2','entrega2','nombre2')">
+Pedir por WhatsApp
+</button>
+
+</div>
+
+<!-- WAKA 33K -->
+
+<div class="card">
+
+<div class="product-image">
+⚡
+</div>
+
+<div class="badge">
+Disponible
+</div>
+
+<div class="product-title">
+Waka 33K
+</div>
+
+<div class="price">
+$420 MXN
+</div>
+
+<div class="label">
+Tu nombre:
+</div>
+
+<input type="text" id="nombre3" placeholder="Ingresa tu nombre">
+
+<div class="label">
+Selecciona sabor:
+</div>
+
+<select id="sabor3">
+<option>Peach</option>
+</select>
+
+<div class="label">
+Punto de entrega:
+</div>
+
+<select id="entrega3">
+<option>Jardín Unión</option>
+<option>Plaza Alaïa</option>
+</select>
+
+<button onclick="pedir('Waka 33K','$420','sabor3','entrega3','nombre3')">
+Pedir por WhatsApp
+</button>
+
+</div>
+
+<!-- IPLAY -->
+
+<div class="card">
+
+<div class="product-image">
+🌪️
+</div>
+
+<div class="badge">
+Disponible
+</div>
+
+<div class="product-title">
+Iplay 15K
+</div>
+
+<div class="price">
+$340 MXN
+</div>
+
+<div class="label">
+Tu nombre:
+</div>
+
+<input type="text" id="nombre4" placeholder="Ingresa tu nombre">
+
+<div class="label">
+Selecciona sabor:
+</div>
+
+<select id="sabor4">
+<option>Boing de Mango</option>
+<option>Pink Lemonade</option>
+<option>Peach Mint</option>
+<option>Halls</option>
+<option>Tulum Mint</option>
+<option>Pink Drink</option>
+<option>Grape Strawberry</option>
+</select>
+
+<div class="label">
+Punto de entrega:
+</div>
+
+<select id="entrega4">
+<option>Jardín Unión</option>
+<option>Plaza Alaïa</option>
+</select>
+
+<button onclick="pedir('Iplay 15K','$340','sabor4','entrega4','nombre4')">
+Pedir por WhatsApp
+</button>
+
+</div>
+
+</section>
+
+<section class="entregas">
+
+<h2 class="section-title">
+Puntos de entrega
+</h2>
+
+<div class="entregas-box">
+
+<ul>
+<li>📍 Jardín Unión</li>
+<li>📍 Plaza Alaïa</li>
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 DariVapos
+</p>
+
+<a class="insta" href="https://instagram.com/dario_ssv" target="_blank">
+@dario_ssv
+</a>
+
+</footer>
+
+<script>
+
+function pedir(modelo,precio,saborId,entregaId,nombreId){
+
+const sabor = document.getElementById(saborId).value;
+const entrega = document.getElementById(entregaId).value;
+const nombre = document.getElementById(nombreId).value;
+
+if(nombre.trim() === ""){
+alert("Ingresa tu nombre");
+return;
+}
+
+const mensaje =
+`Hola, quiero pedir:
+
+👤 Nombre: ${nombre}
+📦 Modelo: ${modelo}
+🍓 Sabor: ${sabor}
+📍 Punto de entrega: ${entrega}
+💰 Precio: ${precio}`;
+
+const whatsappURL =
+"https://api.whatsapp.com/send?phone=524731808402&text=" + encodeURIComponent(mensaje);
+
+window.location.assign(whatsappURL);
+
+}
+
+</script>
